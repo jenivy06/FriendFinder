@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+
 </head>
 <body>
    <div class = "container">
@@ -39,8 +41,8 @@
                     <option value="1">Option 1 (not me)</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3 (possibly)</option>
-                    <option value="3">Option 4</option>
-                    <option value="3">Option 5 (great Scott, it's true!)</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5 (great Scott, it's true!)</option>
                   </select>
               </div>
               <div>
@@ -50,8 +52,8 @@
                     <option value="1">Option 1 (not me)</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3 (possibly)</option>
-                    <option value="3">Option 4</option>
-                    <option value="3">Option 5 (great Scott, it's true!)</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
             <div>
@@ -61,8 +63,8 @@
                     <option value="1">Option 1 (not me)</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3 (possibly)</option>
-                    <option value="3">Option 4</option>
-                    <option value="3">Option 5 (great Scott, it's true!)</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
             <div>
@@ -72,8 +74,8 @@
                     <option value="1">Option 1 (not me)</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3 (possibly)</option>
-                    <option value="3">Option 4</option>
-                    <option value="3">Option 5 (great Scott, it's true!)</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
             <div>
@@ -83,8 +85,8 @@
                   <option value="1">Option 1 (not me)</option>
                   <option value="2">Option 2</option>
                   <option value="3">Option 3 (possibly)</option>
-                  <option value="3">Option 4</option>
-                  <option value="3">Option 5 (great Scott, it's true!)</option>
+                  <option value="4">Option 4</option>
+                  <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
             <div>
@@ -94,8 +96,8 @@
                     <option value="1">Option 1 (not me)</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3 (possibly)</option>
-                    <option value="3">Option 4</option>
-                    <option value="3">Option 5 (great Scott, it's true!)</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
             <div>
@@ -105,8 +107,8 @@
                   <option value="1">Option 1 (not me)</option>
                   <option value="2">Option 2</option>
                   <option value="3">Option 3 (possibly)</option>
-                  <option value="3">Option 4</option>
-                  <option value="3">Option 5 (great Scott, it's true!)</option>
+                  <option value="4">Option 4</option>
+                  <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
             <div>
@@ -116,8 +118,8 @@
                   <option value="1">Option 1 (not me)</option>
                   <option value="2">Option 2</option>
                   <option value="3">Option 3 (possibly)</option>
-                  <option value="3">Option 4</option>
-                  <option value="3">Option 5 (great Scott, it's true!)</option>
+                  <option value="4">Option 4</option>
+                  <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
             <div>
@@ -127,8 +129,8 @@
                     <option value="1">Option 1 (not me)</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3 (possibly)</option>
-                    <option value="3">Option 4</option>
-                    <option value="3">Option 5 (great Scott, it's true!)</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
             <div>
@@ -138,8 +140,8 @@
                     <option value="1">Option 1 (not me)</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3 (possibly)</option>
-                    <option value="3">Option 4</option>
-                    <option value="3">Option 5 (great Scott, it's true!)</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5 (great Scott, it's true!)</option>
                 </select>
             </div>
           </div>
@@ -156,6 +158,36 @@
 </footer>
 </body>
 </html>
-<script type="text/javascript">
-	
+<script>
+  // Activate submit button
+  $(document).ready(function() { 
+    $('#submitButton').on('click', function(event) { 
+      event.preventDefault();
+      //tally user score
+      var userInput = {
+        name: $('#userName').val().trim(),
+        photo: $('#userPhoto').val().trim(),
+        scores: [
+        $('#question1').val().trim(),
+					$('#question2').val().trim(),
+					$('#question3').val().trim(),
+					$('#question4').val().trim(),
+					$('#question5').val().trim(),
+					$('#question6').val().trim(),
+					$('#question7').val().trim(),
+					$('#question8').val().trim(),
+					$('#question9').val().trim(),
+					$('#question10').val().trim()
+        ]
+      }
+
+    })
+
+    console.log(userInput);
+
+
+
+  });
+
+
 </script>
