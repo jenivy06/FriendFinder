@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Back to the Future Buddy Survey</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -28,12 +28,12 @@
                 <div class="input-field col s12">
                     <h6>Name (Required)</h6>
                     
-                    <input type="text" class="validate" placeholder="Your Name Here" id="userName">
+                    <input type="text" class="form-control" placeholder="Your Name Here" id="userName">
                 </div>
             <div>
                 <div class="col s12">
                     <h6>Link to Photo Image (Required)</h6>
-                    <input type="text" class="validate" placeholder="Photo Link Here" id="userPhoto">
+                    <input type="text" class="form-control" placeholder="Photo Link Here" id="userPhoto">
                   </div>
                   <h6><b>Question 1: While time traveling, you don't mind using your knowledge of the past to make a little money. </h6></b>
 <br>
@@ -152,13 +152,14 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" id = "bestFriendModal">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Here's Your Back to the Future Buddy!</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+          <h2 id="matchName"></h2>
+          <img id="matchPic" src="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -359,6 +360,7 @@ $("#q1b1").click(function(){
     answered++
     console.log("User score Q4: " + userScoreQ4);
     $("#q4b3").hide();
+    $("#q4b1").hide();
     $("#q4b4").hide();
     $("#q4b5").hide();
   });
@@ -733,19 +735,26 @@ if (answered <= 9)
 alert("You forgot to answer one or more questions!");
 
 else if (answered === 10) {
-var totalUserScore = [userScoreQ1, userScoreQ2, userScoreQ3, userScoreQ4, userScoreQ5, userScoreQ6, userScoreQ7, userScoreQ8, userScoreQ9, userScoreQ10];
-console.log(totalUserScore);
+var newFriend = 
+{
+name: $('#userName').val().trim(), 
+profilePic: $('#userPhoto').val().trim(),
+scores: [userScoreQ1, userScoreQ2, userScoreQ3, userScoreQ4, userScoreQ5, userScoreQ6, userScoreQ7, userScoreQ8, userScoreQ9, userScoreQ10]
+
+}
+console.log("Scores: " + scores);
+console.log("New Friend" + newFriend);
+
 }
 });
 
 var currentURL = window.location.origin;
-
-// Ajax call for receiving response after POST req
-$.post(currentURL + "/api/friends", newUser, function(data) {
-				$("#bestFriend").text(data.name);
-				$("#bestFriendPhoto").attr("src", data.photo);
-				$("#bestFriendModal").modal("toggle");
-      });
+//AJAX posts the data to friends API.
+$.post(currentURL + "/api/friends", newFriend, function(data) {
+                //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                $("#matchName").text(data.name);
+                $("#matchPic").attr("src", data.profilePic);
+            });
       
 })
 
