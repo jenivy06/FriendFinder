@@ -4,7 +4,10 @@
 
 Fire up your flux capacitor! You're going to travel through time with one of the buddies below (or maybe a mystery person!) But who will it be? Take the survey to find out! Questions are ranked 1 to 5; users will answer 1 if they strongly disagree and 5 if they agree completely. Their answers will set them up with their ideal time-travel friend!
 
+View a demo version here: https://calm-hamlet-98988.herokuapp.com/
+
 ![screenshot](screenshot.png)
+
 
 ###### Code explanation:
 
